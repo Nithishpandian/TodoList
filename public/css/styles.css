@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+    background-color: #E4E9FD;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1, p{
+    margin: 0;
+}
+#todo-page-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#heading-cont{
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+}
+#heading{
+    background-color: #A683E3;
+    padding: 0.6rem 2.7rem;
+    font-size: 1.7rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.3rem;
+}
+#todo-cont{
+    margin-top: 3rem;
+    background-color: white;
+    border:none;
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.4rem 0.2rem 0.7rem;
+    box-shadow: 2px 2px 2px rgb(168, 168, 168);
+}
+#item-cont{
+    display: flex;
+    padding: 1rem 1rem 1rem 1rem;
+    align-items: center;
+    border-bottom: solid 1px rgb(216, 216, 216);
+}
+#item-cont #checkbox{
+    padding: 3rem;
+}
+#checkbox:checked + p{
+    text-decoration: line-through;
+    text-decoration-color: #A683E3;
+}
+#todo-item{
+    color: rgb(43, 43, 43);
+    font-size: 1.28rem;
+    padding: 0.1rem 12rem 0 2rem;
+}
+#new-todo{
+    margin-top: 0.2rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 6fr 1fr;
+    grid-column-gap: 1rem;
+    padding-left: 1rem;
+}
+#input-todo{
+    border: none;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-left: 1rem;
+}
+#input-todo::placeholder{
+    text-align: center;
+    font-size: 1.2rem;
+}
+#input-todo:focus{
+    outline: none;
+    padding-top: 0.25rem;
+    border-bottom: solid 2px #A683E3;
+}
+#add{
+    border: none;
+    font-weight: bold;
+    color: white;
+    background-color: #A683E3;
+    border-radius: 50%;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+#add:hover{
+    border: 1px solid #A683E3;
+    padding: 0.20rem 0.73rem;
+    background-color: white;
+    color: #A683E3;
+}
+
+@media screen and (max-width: 800px)  {
+    body{
+        padding: 0rem;
+        margin: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+        background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+        background-color: #E4E9FD;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #todo-item{
+        color: rgb(43, 43, 43);
+        font-size: 1rem;
+        padding: 0.1rem 6rem 0 2rem;
+    }
+    #heading{
+        background-color: #A683E3;
+        padding: 0.6rem 2.7rem;
+        font-size: 1.3rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 0.3rem;
+    }
+}
