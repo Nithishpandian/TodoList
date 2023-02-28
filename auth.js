@@ -5,7 +5,7 @@ const  GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 
 const GOOGLE_CLIENT_ID = "62854674734-5tgmddca1520frtufg5jtdtdg2hq33ot.apps.googleusercontent.com"
 const GOOGLE_CLIENT_SECRET = "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"
-const callbackURL = "https://todolist-jh81.onrender.com/auth/google/callback" || "http://localhost:3000/auth/google/callback"
+const callbackURL = "https://todolist-jh81.onrender.com/auth/google/callback" 
 
 passport.use(new GoogleStrategy({
     clientID:     GOOGLE_CLIENT_ID,
