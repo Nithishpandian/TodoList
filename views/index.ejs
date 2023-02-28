@@ -4,35 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoList</title>
+    <title>My Wish List | TodoList</title>
     <link rel="stylesheet" href="css/styles.css">
 
+    <script src="https://kit.fontawesome.com/2009496ccf.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="manifest" href="img/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="todo-page-cont">
         <div id="heading-cont">
-            <h1 id="heading"><%= title %></h1>
+            <div id="menu-cont">
+                <label class="container">
+                    <input type="checkbox">
+                    <div class="checkmark" onclick="toggle()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </label>
+            </div>
+            
+            <div id="heading">My Wish List</div>
+            <div id="logout-cont">
+                <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
         </div>
         <div id="todo-cont">
             <% for (let i=0; i<todoItem.length; i++){ %>
-                <div id="item-cont">
-                    <input type="checkbox" name="checkbox" id="checkbox">
-                    <p id="todo-item"><%= todoItem[i] %></p>
+                <form action="/delete/<%- todoItem[i]._id %>" method="post">
+                <div class="item-cont">
+                    <input type="checkbox" name="checkbox" class="checkbox" onclick="checkboxToggle()">
+                    <p id="todo-item" name="todoitem"><%= todoItem[i].item %></p>
+                    <div class="delete-cont">
+                        <button type="submit" name="delete-btn" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                    </div>
                 </div>
+                </form>
             <% } %>
 
-            <form id="new-todo" action="/" method="post">
+            <form id="new-todo" action="/todolist" method="post">
                 <input type="text" name="item" id="input-todo" placeholder="New Item">
                 <div>
-                    <button type="submit" name="button" id="add" value=<%= title %>>+</button>
+                    <button type="submit" name="button" id="add">+</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <script>
+        const logout = document.getElementById("logout-cont")
+        const headingCont = document.querySelector(".checkmark")
+
+        function toggle(){
+            if(logout.style.opacity == "1"){
+                logout.style.opacity = "0"
+            }
+            else{
+                logout.style.opacity = "1"
+            }
+        }
+        
+        const checkboxs = document.querySelectorAll(".checkbox")
+        function checkboxToggle1(){
+            checkboxs.forEach(checkbox=>{
+                if(checkbox.checked==true){
+                    ((checkbox.parentElement).lastElementChild).style.opacity = "1"
+                }
+                else{
+                    ((checkbox.parentElement).lastElementChild).style.opacity = "0"
+                }
+            })
+        }
+        function checkboxToggle2(){
+            checkboxs.forEach(checkbox=>{
+                if(checkbox.checked==false){
+                    ((checkbox.parentElement).lastElementChild).style.opacity = "0"
+                }
+                else{
+                    ((checkbox.parentElement).lastElementChild).style.opacity = "1"
+                }
+            })
+        }
+        function checkboxToggle(){
+            checkboxToggle1()
+            checkboxToggle2()
+        }
+
+        // const deleteBtns = document.querySelectorAll(".delete-btn")
+        // deleteBtns.forEach(deletebtn=>{
+        //     deletebtn.addEventListener("click", async ()=>{
+        //         const deleteItem = ((deletebtn.parentElement).previousElementSibling).innerHTML
+        //         try {
+        //             await Todoitem.findOneAndDelete({ item: deleteItem })
+        //             res.redirect("/todolist")
+        //         } 
+        //         catch (err) {
+        //             console.error(err);
+        //         }
+        //     })
+        // }) 
+    </script>
+
 </body>
 </html>
+
+

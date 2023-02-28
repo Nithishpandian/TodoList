@@ -5,7 +5,75 @@ body{
     background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
     background-color: #E4E9FD;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: roboto;
 }
+#login-cont-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+#login-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 3rem;
+    width: fit-content;
+    box-shadow: 2px 2px 4px 4px rgba(175, 175, 175, 0.2);
+    margin-bottom: 17rem;
+    background-color: rgba(255, 255, 255, 0.74);
+    opacity: 0.9;
+    border-radius: 0.6rem;
+}
+#login-title-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#login-title-cont i{
+    font-size: 34px;
+    margin-right: 14px;
+}
+#login-title-cont h1{
+    font-size: 34px;
+    margin: 0;
+}
+#login-para{
+    font-size: 15px;
+    margin: 33px 0;
+}
+#google-auth-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(167, 0, 0);
+    border-radius: 4px;
+    color: white;
+    width: fit-content;
+    padding: 6px 10px;
+    transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+#google-auth-cont:hover{
+    border: rgb(167, 0, 0) solid 1px;
+    background-color: white;
+    color: rgb(167, 0, 0);
+    padding: 5px 9px;
+}
+#google-auth-cont i{
+    margin-right: 10px;
+    text-decoration: none;
+}
+#google-auth-cont h4{
+    margin: 0;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+/* Index page */
 h1, p{
     margin: 0;
 }
@@ -16,16 +84,116 @@ h1, p{
 }
 #heading-cont{
     margin-top: 3.5rem;
-    display: flex;
-    justify-content: center;
-}
-#heading{
     background-color: #A683E3;
-    padding: 0.6rem 2.7rem;
-    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.05rem 0.8rem 1.05rem;
+    border-radius: 0.3rem;
     color: white;
     font-weight: bold;
-    border-radius: 0.3rem;
+}
+#menu-cont{
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+}
+
+.checkmark span {
+  width: 32px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.checkmark span:nth-child(1) {
+  top: 10%;
+}
+
+.checkmark span:nth-child(2) {
+  top: 50%;
+}
+
+.checkmark span:nth-child(3) {
+  top: 90%;
+}
+
+.container input:checked + .checkmark span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  -moz-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg);
+  -o-transform: translateY(-50%) rotate(45deg);
+}
+
+.container input:checked + .checkmark span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  -moz-transform: translateY(-50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) rotate(-45deg);
+  -o-transform: translateY(-50%) rotate(-45deg);
+}
+
+.container input:checked + .checkmark span:nth-child(3) {
+  transform: translateX(-50px);
+  -webkit-transform: translateX(-50px);
+  -moz-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  -o-transform: translateX(-50px);
+  opacity: 0;
+}
+#heading{
+    padding-left: 6rem;
+    padding-right: 4rem;
+    font-size: 1.75rem;
+    font-weight: 900;
+}
+#logout-cont{
+    opacity: 0;
+    transition: all 0.4s;
+   -webkit-transition: all 0.4s;
+}
+#logout-cont a i{
+    color: white;
+    font-size: 1.75rem;
+    padding-left: 2rem;
+    transition: color 0.3s;
+}
+#logout-cont a i:hover{
+    color:#E4E9FD;
+}
+#logout-cont a{
+    text-decoration: none;
 }
 #todo-cont{
     margin-top: 3rem;
@@ -35,16 +203,40 @@ h1, p{
     padding: 0.2rem 0.4rem 0.2rem 0.7rem;
     box-shadow: 2px 2px 2px rgb(168, 168, 168);
 }
-#item-cont{
-    display: flex;
-    padding: 1rem 1rem 1rem 1rem;
+.item-cont{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    grid-column-gap: 0.2rem;
+    padding: 1rem 0rem;
     align-items: center;
     border-bottom: solid 1px rgb(216, 216, 216);
 }
-#item-cont #checkbox{
-    padding: 3rem;
+.delete-cont{
+    opacity: 0;
+    transition: all 0.35s;
+   -webkit-transition: all 0.35s;
 }
-#checkbox:checked + p{
+.delete-cont button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.delete-cont i{
+    color: #A683E3;
+    cursor: pointer;
+}
+.delete-cont i:hover{
+    color: #bccaff;
+}
+#item-cont .checkbox{
+    padding: 3rem;
+    cursor: pointer;
+}
+.checkbox:checked + p{
     text-decoration: line-through;
     text-decoration-color: #A683E3;
 }
@@ -89,20 +281,27 @@ h1, p{
 }
 #add:hover{
     border: 1px solid #A683E3;
-    padding: 0.20rem 0.73rem;
+    padding: 0.19rem 0.69rem;
     background-color: white;
     color: #A683E3;
 }
 
-@media screen and (max-width: 800px)  {
+
+
+@media screen and (max-width: 800px) {
     body{
-        padding: 0rem;
         margin: 0;
-        min-height: 100vh;
-        min-width: 100vw;
         background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
         background-color: #E4E9FD;
         font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden !important;
+    }
+    #login-cont-cont {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    #login-cont{
+        padding: 2rem 1.7rem;
     }
     #todo-item{
         color: rgb(43, 43, 43);
@@ -111,10 +310,17 @@ h1, p{
     }
     #heading{
         background-color: #A683E3;
-        padding: 0.6rem 2.7rem;
-        font-size: 1.3rem;
+        padding: 0.6rem 2rem;
+        font-size: 1.5rem;
         color: white;
         font-weight: bold;
         border-radius: 0.3rem;
     }
+    #menu-cont{
+        font-size: 1.5rem;
+    }
+    #login-title-cont h1{
+        font-size: 27px;
+    }
 }
+
